@@ -1,3 +1,6 @@
 # iBoot64Patcher
-[![CI Building](https://img.shields.io/github/actions/workflow/status/Cryptiiiic/iBoot64Patcher/ci.yml?branch=main&style=for-the-badge)](https://github.com/Cryptiiiic/iBoot64Patcher/actions)
+
+Not modified in any way, I just fixed the compiling scripts so that it no longer fails to build for both Windows and macOS. You can see the artifacts in the Actions tab. - GeoSnow
+
+[![iBoot64Patcher](https://github.com/GeoSn0w/iBoot64Patcher/actions/workflows/ci.yml/badge.svg)](https://github.com/GeoSn0w/iBoot64Patcher/actions/workflows/ci.yml)
 ## Fork of [tihmstar/iBoot64Patcher](https://github.com/tihmstar/iBoot64Patcher)
