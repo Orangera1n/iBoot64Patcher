@@ -185,17 +185,17 @@ int main(int argc, const char * argv[]) {
 
     for (const auto& p2 : patches) {
       printf("%s: Applying patch=0x%016llx: ", __FUNCTION__, p2._location);
-      for (int i=0; i<p2._patchSize; i++) {
-        printf("%02x",((uint8_t*)p2._patch)[i]);
+      for (int i=0; i<p2.patchSize(); i++) {
+        printf("%02x",((uint8_t*)p2.patch())[i]);
       }
-      if (p2._patchSize == 4) {
-        printf(" 0x%08x",*(uint32_t*)p2._patch);
-      } else if (p2._patchSize == 2) {
-        printf(" 0x%04x",*(uint16_t*)p2._patch);
+      if (p2.patchSize() == 4) {
+        printf(" 0x%08x",*(uint32_t*)p2.patch());
+      } else if (p2.patchSize() == 2) {
+        printf(" 0x%04x",*(uint16_t*)p2.patch());
       }
       printf("\n");
       auto off = (ibootpatchfinder::loc64_t)(p2._location - ibpf->find_base());
-      memcpy(&deciboot[off], p2._patch, p2._patchSize);
+      memcpy(&deciboot[off], p2.patch(), p2.patchSize());
     }
     printf("%s: Writing out patched file to %s...\n", __FUNCTION__, iboot_patched_path);
     ret = fwrite(deciboot,1, iboot_size, fp);
